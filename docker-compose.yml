@@ -7,6 +7,7 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
+    image: larvel-app
     working_dir: /var/www/
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
