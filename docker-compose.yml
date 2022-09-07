@@ -35,10 +35,15 @@ services:
     networks:
       - bjnetwork
 
-  nginx:
-    image: nginx:latest
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile_Nginx
+    image: larvel-nginx 
+    container_name: webserver 
+    restart: unless-stopped
     ports:
-      - 80:80
+      - "80:80"
     depends_on:
       - db
       - app
