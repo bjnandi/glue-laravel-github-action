@@ -56,9 +56,10 @@ jobs:
           ECR_REPOSITORY: reponame
           IMAGE_TAG: latest
         run: |
-          docker-compose build
           docker images
-          docker tag glue-laravel-bc_app:latest $ECR_REGISTRY/larvel-app:$IMAGE_TAG
+          docker tag larvel-nginx:latest $ECR_REGISTRY/larvel-nginx:$IMAGE_TAG
+          docker tag larvel-app:latest $ECR_REGISTRY/larvel-app:$IMAGE_TAG
+          docker push $ECR_REGISTRY/larvel-nginx:$IMAGE_TAG
           docker push $ECR_REGISTRY/larvel-app:$IMAGE_TAG
           echo "setting output values"
           echo "::set-output name=appimage::$ECR_REGISTRY/larvel-app:$IMAGE_TAG"
