@@ -56,6 +56,7 @@ jobs:
           ECR_REPOSITORY: reponame
           IMAGE_TAG: latest
         run: |
+          docker-compose build
           docker images
           docker tag larvel-nginx:latest $ECR_REGISTRY/larvel-nginx:$IMAGE_TAG
           docker tag larvel-app:latest $ECR_REGISTRY/larvel-app:$IMAGE_TAG
