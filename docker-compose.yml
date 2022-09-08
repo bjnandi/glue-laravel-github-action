@@ -9,6 +9,7 @@ services:
       dockerfile: Dockerfile
     image: larvel-app
     working_dir: /var/www/
+    
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
     depends_on:
@@ -24,7 +25,7 @@ services:
       MYSQL_DATABASE: glue
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_PASSWORD: 12345678
-      MYSQL_USER: biswajit
+      MYSQL_USER: root
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
@@ -61,4 +62,5 @@ networks:
 volumes:
   dbdata:
     driver: local
+
 
